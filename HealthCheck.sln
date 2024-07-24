@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCheck.Server", "HealthCheck.Server\HealthCheck.Server.csproj", "{B9A44EE7-E052-41FF-A3A6-F42B114C9341}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "healthcheck.client", "healthcheck.client\healthcheck.client.esproj", "{7E2268F2-42BE-426F-BCA2-20AC622B5FC9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9A44EE7-E052-41FF-A3A6-F42B114C9341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9A44EE7-E052-41FF-A3A6-F42B114C9341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9A44EE7-E052-41FF-A3A6-F42B114C9341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9A44EE7-E052-41FF-A3A6-F42B114C9341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E2268F2-42BE-426F-BCA2-20AC622B5FC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E2268F2-42BE-426F-BCA2-20AC622B5FC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E2268F2-42BE-426F-BCA2-20AC622B5FC9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7E2268F2-42BE-426F-BCA2-20AC622B5FC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E2268F2-42BE-426F-BCA2-20AC622B5FC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E2268F2-42BE-426F-BCA2-20AC622B5FC9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E798FCA2-A41D-4B64-A0F1-C5341841FB4F}
+	EndGlobalSection
+EndGlobal
