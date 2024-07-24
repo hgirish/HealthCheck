@@ -5,13 +5,13 @@ namespace HealthCheck.Server;
 
 public class ICMPHealthCheck : IHealthCheck
 {
-    private readonly string Host = $"10.0.0.0";
-    private readonly int HealthyRoundtripTime = 300;
+    private readonly string _host ;
+    private readonly int _healthyRoundtripTime = 300;
 
     public ICMPHealthCheck(string  host, int healthyRoundtrimTime)
     {
-        Host = host;
-        HealthyRoundtripTime = healthyRoundtrimTime;
+        _host = host;
+        _healthyRoundtripTime = healthyRoundtrimTime;
     }
     public async Task<HealthCheckResult> CheckHealthAsync(
         HealthCheckContext context, 
@@ -20,18 +20,18 @@ public class ICMPHealthCheck : IHealthCheck
         try
         {
             using var ping = new Ping();
-            var reply = await ping.SendPingAsync(Host);
+            var reply = await ping.SendPingAsync(_host);
             switch(reply.Status)
             {
                 case IPStatus.Success:
                     var msg =
-                        $"ICMP to {Host} took {reply.RoundtripTime} ms.";
-                    return (reply.RoundtripTime > HealthyRoundtripTime)
+                        $"ICMP to {_host} took {reply.RoundtripTime} ms.";
+                    return (reply.RoundtripTime > _healthyRoundtripTime)
                         ? HealthCheckResult.Degraded(msg)
                         : HealthCheckResult.Healthy(msg);
                 default:
                     var err =
-                        $"ICMP to {Host} failed: {reply.Status}";
+                        $"ICMP to {_host} failed: {reply.Status}";
                     return HealthCheckResult.Unhealthy();
             }
         }

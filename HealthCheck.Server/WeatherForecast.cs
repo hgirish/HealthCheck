@@ -1,3 +1,6 @@
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using System.Net.NetworkInformation;
+
 namespace HealthCheck.Server;
 
 public class WeatherForecast
@@ -10,3 +13,4 @@ public class WeatherForecast
 
     public string? Summary { get; set; }
 }
+
