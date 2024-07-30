@@ -12,6 +12,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,18 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   ],
   imports: [
     BrowserModule,
-   // HttpClientModule,
+    // HttpClientModule,
     AppRoutingModule,
     //BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     provideAnimationsAsync(),
