@@ -34,8 +34,7 @@
 						"assets": [
 							{
 								"glob": "**/*",
-                "input": "public",
-                "src/manifest.webmanifest"
+                "input": "public"                
 							}
 						],
 						"styles": [
@@ -104,8 +103,8 @@
 						"assets": [
               {
                 "glob": "**/*",
-                "input": "public",
-                "src/manifest.webmanifest"
+                "input": "public"
+                
               }
 						],
 						"styles": [
