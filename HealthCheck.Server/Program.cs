@@ -1,5 +1,6 @@
 global using HealthCheck.Server;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.SignalR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +27,8 @@ cfg =>
     cfg.WithOrigins(builder.Configuration["AllowedCORS"]!);
 }));
 
+builder.Services.AddSignalR();
+
 var app = builder.Build();
 
 app.UseDefaultFiles();
@@ -50,6 +53,14 @@ app.UseHealthChecks(new PathString("/api/health"),
 app.MapControllers();
 
 app.MapMethods("/api/heartbeat", new[] { "HEAD" }, () => Results.Ok());
+
+app.MapHub<HealthCheckHub>("/api/health-hub");
+
+app.MapGet("/api/broadcast/update2", async (IHubContext<HealthCheckHub> hub) =>
+{
+    await hub.Clients.All.SendAsync("Update", "test");
+    return Results.Text("Update messages sent.");
+});
 
 app.MapFallbackToFile("/index.html");
 
