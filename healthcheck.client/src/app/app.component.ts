@@ -35,7 +35,7 @@ export class AppComponent  {
         tap((newState: ConnectionState) => {
           this.currentState = newState;
 
-          if (this.currentState.hasNetworkConnection) {
+          if (this.currentState.hasNetworkConnection && this.currentState.hasInternetAccess) {
             this.status = 'ONLINE';
           
           } else {
