@@ -45,7 +45,16 @@ export class HealthCheckService {
     this.hubConnection.on('Update', (msg) => {
       console.log("Update issued by server for the following reason: " + msg);
       this.updateData();
+    });
+    this.hubConnection.on('ClientUpdate', (msg) => {
+      console.log('Update issued by client for the following reason: ' + msg);
+      this.updateData();
     })
+  }
+
+  public sendClientUpdate() {
+    this.hubConnection.invoke('ClientUpdate', 'client test')
+      .catch(err => console.error(err));
   }
 }
 
